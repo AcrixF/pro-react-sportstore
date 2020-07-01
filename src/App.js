@@ -8,10 +8,10 @@ import './App.css';
 export default class App extends Component {
 
   render() {
-    return <Provider store={ SportStoreDataStore }>
+    return <Provider store = { SportStoreDataStore }>
       <Router>
         <Switch>
-          <Route path="/shop" component={ ShopConnector }/>
+          <Route path="/shop" component = { ShopConnector }/>
           <Redirect to="/shop"/>
         </Switch>
       </Router>

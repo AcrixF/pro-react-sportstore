@@ -5,12 +5,14 @@ import { loadData } from "../data/ActionCreators";
 import { DataType } from "../data/Types";
 import { Shop } from "./Shop";
 
+import { addToCart, updateCartQuantity, removeFromCart, clearCart } from '../data/CartActionCreators';
+
 const mapStateToProps = (dataStore) => ({
     ...dataStore
 });
 
 const mapDispatchToProps = {
-    loadData
+    loadData, addToCart, updateCartQuantity, removeFromCart, clearCart
 };
 
 const filterProducts = (products = [], category) => {
@@ -25,10 +27,10 @@ export const ShopConnector = connect(mapStateToProps, mapDispatchToProps)(
             return (
                 <Switch>
                     <Route path="/shop/products/:category?"
-                           render={ (routeProps) =>
+                           render = { (routeProps) =>
                                <Shop { ...this.props }
                                      { ...routeProps }
-                                     products={ filterProducts(this.props.products, routeProps.match.params.category) }
+                                     products = { filterProducts(this.props.products, routeProps.match.params.category) }
                                /> } />
                     <Redirect to="/shop/products"/>
                 </Switch>
